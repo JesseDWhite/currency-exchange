@@ -13,9 +13,9 @@ button {
     margin-top: 15px;
     font-size: 25px;
 }
-#all-conversions {
+/* #all-conversions {
     color: rgb(0, 180, 0);
-}
+} */
 #show-error {
     color: red;
 } 
@@ -23,6 +23,12 @@ p, em {
     text-align: center;
     font-size: 25px;
 }
+div > span{
+    color: rgb(0, 180, 0);
+}
 #change-info {
     display: none;
+}
+.card {
+    padding: 30px;
 }
