@@ -4,17 +4,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyExchangeService from './js/currency-class.js';
 
+function hideAllFields() {
+    $("#all-conversions").hide();
+    $("#show-error").show();
+}
+
+function showAllFields() {
+    $("#all-conversions").show();
+    $("#show-error").hide();
+}
+
 function currencyCompare(response) {
     const baseRate = response.base_code;
     const compareRate = response.target_code;
-    if (!response.result === "success") {
-        console.log("that did not work for currency");
-    } else if (response.result === "supported-code") {
-        return console.log("It doesn't look like we have that currencie code")
-    } else {
-        console.log(baseRate);
-        console.log(compareRate);
-        console.log(response.conversion_rate);
+    if (response["error-type"] === "unsupported-code") {
+        hideAllFields();
+        console.log(response);
+        return $("#show-error").text("It doesn't look like we have that currency code.");
+    } else if (response["error-type"] === "malformed-request") {
+        hideAllFields();
+        return $("#show-error").text("Please enter a valid currency code.");
+    } else if (baseRate === undefined || compareRate === undefined) {
+        hideAllFields();
+        console.log(response);
+        return $("#show-error").text("Please input all fields before submitting.");
+    } else if (response["error-type"] === "invalid-key") {
+        hideAllFields();
+        return $("#show-error").text("It looks like your API key is no longer valid. Please submit for another API key");
+    } else if (response["error-type"] === "inactive-account") {
+        hideAllFields();
+        return $("#show-error").text("Your account is no longer active. Please either reactivate your account, or create a new one");
+    } else if (response["error-type"] === "quota-reached") {
+        hideAllFields();
+        return $("#show-error").text("You have reached the maximum number of API requests for your account. Please see our documentation for API quotas.");
+    }
+    else {
+        showAllFields();
         return response.conversion_rate;
     }
 }
