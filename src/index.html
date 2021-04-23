@@ -12,13 +12,17 @@
     <h1>This is connected</h1>
     <div class="container">
         <form>
-            <label for="base-rate">Base Rate to Compare</label>
-            <input type="text" name="base-rate" id="base-rate">
-            <br>
+            <label for="ammout">Currency Amount You Would Like to Convert</label>
+            <input type="number" name="ammount" id="ammount" class="form-control" min="1">
+            <label for="base-rate">Currency Code</label>
+            <input type="text" name="base-rate" id="base-rate" class="form-control">
             <label for="rate-to-compare">Rate to Compare</label>
-            <input type="text" name="rate-to-compare" id="rate-to-compare">
-            <button class="btn btn-success" type="submit">Check Exchage Rate</button>
+            <input type="text" name="rate-to-compare" id="rate-to-compare" class="form-control">
+            <button class="btn btn-success mt-3" type="submit">Check Exchage Rate</button>
         </form>
+        <div id="show-error"></div>
+        <div id="current-value"></div>
+        <div id="conversion"></div>
     </div>
 </body>
 
