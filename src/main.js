@@ -54,20 +54,21 @@ $(document).ready(function () {
 
         CurrencyExchangeService.getCurrency(baseRate, compareRate)
             .then(function (response) {
+                $('#last-updated').html(`Last Updated: ${Date(response.time_last_update_utc)}`);
                 $("#current-value").html(`The current exchange rate from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: <span>${currencyCompare(response).toFixed(2)}</span>`);
                 $("#conversion").html(`Your total converted exchange value from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: <span>${(currencyCompare(response) * currencyAmmount).toFixed(2)}</span>`);
             });
 
         $('form').slideUp();
-        $('#submit-info').fadeOut();
+        $('#submit-info').slideUp();
         $('#change-info').fadeIn();
         $('#show-error').fadeIn();
         $('#all-conversions').fadeIn();
 
         $('#change-info').click(function () {
             $('form').slideDown();
-            $('#submit-info').fadeIn();
-            $('#change-info').fadeOut();
+            $('#submit-info').slideDown();
+            $('#change-info').slideUp();
             $('#show-error').fadeOut();
             $('#all-conversions').fadeOut();
         });

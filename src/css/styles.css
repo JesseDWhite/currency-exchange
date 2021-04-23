@@ -7,12 +7,6 @@ body {
     background-size: cover;
     color: white;
 }
-form {
-    text-align: start;
-}
-button {
-    width: 100%;
-}
 #show-error, #all-conversions {
     margin-top: 15px;
     font-size: 25px;
@@ -29,9 +23,16 @@ div > span{
 }
 #change-info {
     display: none;
+    text-align: center;
+    width: 50%;
+}
+#submit-info {
+    text-align: center;
+    width: 50%;
 }
 .card {
     padding: 30px;
+    background-color:rgba(128, 128, 128, 0.479);
 }
 h1 {
     margin-bottom: 30px;
