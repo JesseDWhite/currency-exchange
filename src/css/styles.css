@@ -24,11 +24,11 @@ div > span{
 #change-info {
     display: none;
     text-align: center;
-    width: 50%;
+    width: 100%;
 }
 #submit-info {
     text-align: center;
-    width: 50%;
+    width: 100%;
 }
 .card {
     padding: 30px;
