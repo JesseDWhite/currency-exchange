@@ -1,5 +1,5 @@
 body {
-    background-color: lightgrey;
+    background-color: rgb(0, 0, 0);
     text-align: center;
     margin-top: 5%;
     background-image: url(./../../assets/img/image-2.jpg);
@@ -33,6 +33,7 @@ div > span{
 .card {
     padding: 30px;
     background-color:rgba(128, 128, 128, 0.479);
+    text-align: center;
 }
 h1 {
     margin-bottom: 30px;

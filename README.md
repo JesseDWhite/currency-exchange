@@ -13,6 +13,7 @@ _{This is a detailed description of your application. Give as much detail as nee
 ### Prerequisites 💻
 * [Node](https://nodejs.org/en/)
 * A text editor like [VS Code](https://code.visualstudio.com/)
+* API key for [ExchangeRate-API](https://www.exchangerate-api.com/)
 ## Setup/Installation Requirements 🏗
 1. Clone the repository: `$ git clone https://github.com/account/my-project`
 2. Navigate to the `my-project/` directory on your computer
