@@ -21,4 +21,8 @@ button {
 } 
 p, em {
     text-align: center;
+    font-size: 25px;
+}
+#change-info {
+    display: none;
 }

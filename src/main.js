@@ -53,8 +53,19 @@ $(document).ready(function () {
 
         CurrencyExchangeService.getCurrency(baseRate, compareRate)
             .then(function (response) {
-                $("#current-value").html(`The current exchange rate from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${currencyCompare(response)}`);
-                $("#conversion").html(`Your total converted exchange value from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${currencyCompare(response) * currencyAmmount}`);
+                $("#current-value").html(`The current exchange rate from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${currencyCompare(response).toFixed(2)}`);
+                $("#conversion").html(`Your total converted exchange value from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${(currencyCompare(response) * currencyAmmount).toFixed(2)}`);
             });
+
+        $('form').slideUp();
+        $('#submit-info').slideUp();
+        $('#change-info').slideDown();
+
+        $('#change-info').click(function () {
+            $('form').slideDown();
+            $('#submit-info').slideDown();
+            $('#change-info').slideUp();
+
+        })
     });
 });
