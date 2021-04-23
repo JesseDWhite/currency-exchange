@@ -17,16 +17,15 @@ function showAllFields() {
 function currencyCompare(response) {
     const baseRate = response.base_code;
     const compareRate = response.target_code;
+    const convertedCurrency = response.conversion_rate;
     if (response["error-type"] === "unsupported-code") {
         hideAllFields();
-        console.log(response);
         return $("#show-error").text("It doesn't look like we have that currency code.");
     } else if (response["error-type"] === "malformed-request") {
         hideAllFields();
         return $("#show-error").text("Please enter a valid currency code.");
     } else if (baseRate === undefined || compareRate === undefined) {
         hideAllFields();
-        console.log(response);
         return $("#show-error").text("Please input all fields before submitting.");
     } else if (response["error-type"] === "invalid-key") {
         hideAllFields();
@@ -40,7 +39,7 @@ function currencyCompare(response) {
     }
     else {
         showAllFields();
-        return response.conversion_rate;
+        return convertedCurrency;
     }
 }
 
@@ -54,9 +53,8 @@ $(document).ready(function () {
 
         CurrencyExchangeService.getCurrency(baseRate, compareRate)
             .then(function (response) {
-                $("#current-value").html(`The current exchange rate from ${baseRate} to ${compareRate} is: ${currencyCompare(response)}`);
-                $("#conversion").html(`Your total converted exchange value from ${baseRate} to ${compareRate} is: ${currencyCompare(response) * currencyAmmount}`);
+                $("#current-value").html(`The current exchange rate from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${currencyCompare(response)}`);
+                $("#conversion").html(`Your total converted exchange value from ${baseRate.toUpperCase()} to ${compareRate.toUpperCase()} is: ${currencyCompare(response) * currencyAmmount}`);
             });
-
     });
 });

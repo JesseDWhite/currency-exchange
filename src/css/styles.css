@@ -1,3 +1,24 @@
 body {
-    background-color: green;
+    background-color: lightgrey;
+    text-align: center;
+    margin-top: 5%;
+}
+form {
+    text-align: start;
+}
+button {
+    width: 100%;
+}
+#show-error, #all-conversions {
+    margin-top: 15px;
+    font-size: 25px;
+}
+#all-conversions {
+    color: rgb(0, 180, 0);
+}
+#show-error {
+    color: red;
+} 
+p, em {
+    text-align: center;
 }
