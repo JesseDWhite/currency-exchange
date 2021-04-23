@@ -59,15 +59,15 @@ $(document).ready(function () {
             });
 
         $('form').slideUp();
-        $('#submit-info').slideUp();
-        $('#change-info').slideDown();
+        $('#submit-info').fadeOut();
+        $('#change-info').fadeIn();
         $('#show-error').fadeIn();
         $('#all-conversions').fadeIn();
 
         $('#change-info').click(function () {
             $('form').slideDown();
-            $('#submit-info').slideDown();
-            $('#change-info').slideUp();
+            $('#submit-info').fadeIn();
+            $('#change-info').fadeOut();
             $('#show-error').fadeOut();
             $('#all-conversions').fadeOut();
         });
