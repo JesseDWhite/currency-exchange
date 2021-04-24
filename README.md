@@ -1,4 +1,4 @@
-# _currency-exchange_
+# _currency-exchange_ 💱
 #### _Application made for converting currency_
 #### By _Jesse White_
 ## Technologies Used
